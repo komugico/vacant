@@ -17,12 +17,20 @@ import * as serviceWorker from './serviceWorker';
 import HomeContainer from './views/apps/home/containers/HomeContainer';
 import HomeStore from './stores/apps/home/store';
 
+import PuzzlePanelContainer from './views/apps/gamecenter/containers/PuzzlePanelContainer';
+import PuzzlePanelStore from './stores/apps/gamecenter/store';
+
 ReactDOM.render(
     <React.StrictMode>
         <Router>
             <Route exact path="/">
                 <Provider store={HomeStore}>
                     <HomeContainer />
+                </Provider>
+            </Route>
+            <Route exact path="/gamecenter/puzzlepanel">
+                <Provider store={PuzzlePanelStore}>
+                    <PuzzlePanelContainer />
                 </Provider>
             </Route>
         </Router>
