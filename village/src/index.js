@@ -3,6 +3,7 @@
 /* ========================================================================== */
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import { Provider } from 'react-redux';
 
 /* ========================================================================== */
@@ -11,16 +12,20 @@ import { Provider } from 'react-redux';
 import * as serviceWorker from './serviceWorker';
 
 /* ========================================================================== */
-/* Game Center                                                                */
+/* Containers & Stores                                                        */
 /* ========================================================================== */
-import LatticeContainer from './gamecenter/views/containers/LatticeContainer';
-import LatticeStore from './gamecenter/stores/Lattice/LatticeStore';
+import HomeContainer from './views/apps/home/containers/HomeContainer';
+import HomeStore from './stores/apps/home/store';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Provider store={LatticeStore}>
-      <LatticeContainer />
-    </Provider>
+    <Router>
+      <Route exact path="/">
+        <Provider store={HomeStore}>
+          <HomeContainer />
+        </Provider>
+      </Route>
+    </Router>
   </React.StrictMode>,
   document.getElementById('root')
 );
