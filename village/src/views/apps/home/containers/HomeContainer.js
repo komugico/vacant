@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
+import HeaderModule from '../../../shared/components/modules/HeaderModule';
+
 import * as actions from '../../../../stores/apps/home/action';
 
 class HomeContainer extends Component {
@@ -11,6 +13,7 @@ class HomeContainer extends Component {
     render() {
         return (
             <div>
+                <HeaderModule />
                 <h1>Welcome to My Home</h1>
                 <button onClick={this.props.act_welcome}>Click Me</button>
             </div>

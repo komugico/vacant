@@ -18,16 +18,16 @@ import HomeContainer from './views/apps/home/containers/HomeContainer';
 import HomeStore from './stores/apps/home/store';
 
 ReactDOM.render(
-  <React.StrictMode>
-    <Router>
-      <Route exact path="/">
-        <Provider store={HomeStore}>
-          <HomeContainer />
-        </Provider>
-      </Route>
-    </Router>
-  </React.StrictMode>,
-  document.getElementById('root')
+    <React.StrictMode>
+        <Router>
+            <Route exact path="/">
+                <Provider store={HomeStore}>
+                    <HomeContainer />
+                </Provider>
+            </Route>
+        </Router>
+    </React.StrictMode>,
+    document.getElementById('root')
 );
 
 // If you want your app to work offline and load faster, you can change
