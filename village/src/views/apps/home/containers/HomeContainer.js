@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Container, Row, Col } from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
 
 import HeaderModule from '../../../shared/components/modules/HeaderModule';
 
@@ -14,8 +16,17 @@ class HomeContainer extends Component {
         return (
             <div>
                 <HeaderModule />
-                <h1>Welcome to My Home</h1>
-                <button onClick={this.props.act_welcome}>Click Me</button>
+                <br />
+                <Container fluid>
+                    <Row>
+                        <Col></Col>
+                        <Col xl={8} lg={8} md={8} sm={8} xs={8}>
+                            <h1>Welcome to My Home</h1>
+                            <Button onClick={this.props.act_welcome} size="lg" block>Click Me</Button>
+                        </Col>
+                        <Col></Col>
+                    </Row>
+                </Container>
             </div>
         );
     }

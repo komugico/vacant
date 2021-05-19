@@ -9,7 +9,7 @@ class HeaderModule extends Component {
 
     render() {
         return (
-            <Navbar bg="dark" variant="dark">
+            <Navbar bg="light" variant="light">
                 <LinkContainer to="/">
                     <Navbar.Brand href="/">Vacant</Navbar.Brand>
                 </LinkContainer>
