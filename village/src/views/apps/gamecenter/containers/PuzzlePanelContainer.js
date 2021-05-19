@@ -5,7 +5,7 @@ import { Button } from 'react-bootstrap';
 
 import HeaderModule from '../../../shared/components/modules/HeaderModule';
 
-import * as actions from '../../../../stores/apps/gamecenter/action';
+import * as actions from '../../../../stores/gamecenter/action';
 
 class PuzzlePanelContainer extends Component {
     constructor(props) {

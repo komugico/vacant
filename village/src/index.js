@@ -15,10 +15,10 @@ import * as serviceWorker from './serviceWorker';
 /* Containers & Stores                                                        */
 /* ========================================================================== */
 import HomeContainer from './views/apps/home/containers/HomeContainer';
-import HomeStore from './stores/apps/home/store';
+import HomeStore from './stores/home/store';
 
 import PuzzlePanelContainer from './views/apps/gamecenter/containers/PuzzlePanelContainer';
-import PuzzlePanelStore from './stores/apps/gamecenter/store';
+import PuzzlePanelStore from './stores/gamecenter/store';
 
 ReactDOM.render(
     <React.StrictMode>
