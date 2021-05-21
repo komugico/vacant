@@ -1,5 +1,5 @@
 import React from 'react';
-import { Col } from 'react-bootstrap';
+import { Row, Col } from 'react-bootstrap';
 
 import PanelAtom from '../atoms/PanelAtom';
 
@@ -44,11 +44,13 @@ class BoardBlock extends React.Component {
 
     render() {
         return (
-            <Col></Col>
-            <Col>
-                {this.tableBoard()}
-            </Col>
-            <Col></Col>
+            <Row>
+                <Col></Col>
+                <Col>
+                    {this.tableBoard()}
+                </Col>
+                <Col></Col>
+            </Row>
         );
     }
 }
