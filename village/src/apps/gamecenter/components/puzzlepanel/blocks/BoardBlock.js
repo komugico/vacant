@@ -1,4 +1,5 @@
 import React from 'react';
+import { Col } from 'react-bootstrap';
 
 import PanelAtom from '../atoms/PanelAtom';
 
@@ -43,9 +44,11 @@ class BoardBlock extends React.Component {
 
     render() {
         return (
-            <div>
+            <Col></Col>
+            <Col>
                 {this.tableBoard()}
-            </div>
+            </Col>
+            <Col></Col>
         );
     }
 }
