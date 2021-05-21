@@ -3,9 +3,9 @@ import { connect } from 'react-redux';
 import { Container, Row, Col } from 'react-bootstrap';
 import { Button } from 'react-bootstrap';
 
-import HeaderModule from '../../../shared/components/modules/HeaderModule';
+import HeaderModule from '../../shared/components/modules/HeaderModule';
 
-import * as actions from '../../../../stores/home/action';
+import * as actions from '../stores/home/action';
 
 class HomeContainer extends Component {
     constructor(props) {

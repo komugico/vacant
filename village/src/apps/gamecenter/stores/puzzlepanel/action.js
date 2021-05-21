@@ -1,13 +1,12 @@
 /* ========================================================================== */
 /* Action Types                                                               */
 /* ========================================================================== */
-export const WELCOME = "@gamecenter/puzzlepanel/welcome";
+export const INIT = "@gamecenter/puzzlepanel/init";
 
 
 /* ========================================================================== */
 /* Actions                                                                    */
 /* ========================================================================== */
-export const act_welcome = (message) => ({
-    type: WELCOME,
-    message: message
+export const act_init = () => ({
+    type: INIT,
 });

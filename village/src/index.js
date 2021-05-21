@@ -14,15 +14,15 @@ import * as serviceWorker from './serviceWorker';
 /* ========================================================================== */
 /* Containers & Stores                                                        */
 /* ========================================================================== */
-import HomeContainer from './views/apps/home/containers/HomeContainer';
-import HomeStore from './stores/home/store';
+import HomeContainer from './apps/home/containers/HomeContainer';
+import HomeStore from './apps/home/stores/home/store';
 
-import PuzzlePanelContainer from './views/apps/gamecenter/containers/PuzzlePanelContainer';
-import PuzzlePanelStore from './stores/gamecenter/store';
+import PuzzlePanelContainer from './apps/gamecenter/containers/PuzzlePanelContainer';
+import PuzzlePanelStore from './apps/gamecenter/stores/puzzlepanel/store';
 
 ReactDOM.render(
     <React.StrictMode>
-        <Router>
+        <Router basename={process.env.PUBLIC_URL}>
             <Route exact path="/">
                 <Provider store={HomeStore}>
                     <HomeContainer />

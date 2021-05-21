@@ -2,22 +2,15 @@
 /* Import                                                                     */
 /* ========================================================================== */
 import * as actions from './action';
-
-/* ========================================================================== */
-/* State                                                                      */
-/* ========================================================================== */
-const initialState = {
-    message: "welcome",
-};
+import * as logics from './logics';
 
 /* ========================================================================== */
 /* Reducer                                                                    */
 /* ========================================================================== */
-const reducer = (state = initialState, action) => {
+const reducer = (state = logics.createInitState(), action) => {
     switch (action.type) {
-        case actions.WELCOME:
-            alert(action.message);
-            return state;
+        case actions.INIT:
+            return logics.createInitState();
         default:
             return state;
     }
