@@ -15,12 +15,12 @@ class PuzzlePanelContainer extends React.Component {
     }
 
     componentDidMount() {
-        this.props.act_init();
+        this.props.act_init_state();
     }
 
     componentDidUpdate(prevProps, prevState, snapshot) {
         if (prevProps.cntFlip !== this.props.cntFlip) {
-            this.props.act_judge();
+            this.props.act_judge_answer();
         }
     }
 
@@ -33,7 +33,7 @@ class PuzzlePanelContainer extends React.Component {
                     <Row>
                         <Col xl={12} lg={12} md={12} sm={12} xs={12}>
                             <OperationModule
-                                act_problem_random={this.props.act_problem_random}
+                                act_create_problem_random={this.props.act_create_problem_random}
                             />
                         </Col>
                     </Row>

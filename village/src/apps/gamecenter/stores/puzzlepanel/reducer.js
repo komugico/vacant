@@ -10,9 +10,9 @@ import * as C from './constants';
 /* ========================================================================== */
 const reducer = (state = logics.createInitState(), action) => {
     switch (action.type) {
-        case actions.INIT:
+        case actions.INIT_STATE:
             return logics.createInitState();
-        case actions.PROBLEM_RANDOM:
+        case actions.CREATE_PROBLEM_RANDOM:
             let problemPanels = logics.createProblemRandom(state.numPanel);
             let answerPanels = [];
             
@@ -37,7 +37,7 @@ const reducer = (state = logics.createInitState(), action) => {
                 answerPanels: flipped_answerPanels,
                 cntFlip: cntFlip,
             }
-        case actions.JUDGE:
+        case actions.JUDGE_ANSWER:
             if (logics.judge(state.problemPanels, state.answerPanels, state.numPanel)) {
                 setTimeout(() => alert("CLEAR"), 1);
             }
