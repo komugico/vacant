@@ -12,27 +12,16 @@ import { Provider } from 'react-redux';
 import * as serviceWorker from './serviceWorker';
 
 /* ========================================================================== */
-/* Containers & Stores                                                        */
+/* App Routers                                                                */
 /* ========================================================================== */
-import HomeContainer from './apps/home/containers/HomeContainer';
-import HomeStore from './apps/home/stores/home/store';
-
-import PuzzlePanelContainer from './apps/gamecenter/containers/PuzzlePanelContainer';
-import PuzzlePanelStore from './apps/gamecenter/stores/puzzlepanel/store';
+import HomeRouter from './apps/home/HomeRouter';
+import GameCenterRouter from './apps/gamecenter/GameCenterRouter';
 
 ReactDOM.render(
     <React.StrictMode>
         <Router basename={process.env.PUBLIC_URL}>
-            <Route exact path="/">
-                <Provider store={HomeStore}>
-                    <HomeContainer />
-                </Provider>
-            </Route>
-            <Route exact path="/gamecenter/puzzlepanel">
-                <Provider store={PuzzlePanelStore}>
-                    <PuzzlePanelContainer />
-                </Provider>
-            </Route>
+            <HomeRouter />
+            <GameCenterRouter />
         </Router>
     </React.StrictMode>,
     document.getElementById('root')
