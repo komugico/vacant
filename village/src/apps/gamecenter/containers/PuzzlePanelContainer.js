@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import { Container, Row, Col } from 'react-bootstrap';
 
@@ -9,7 +9,7 @@ import ProblemModule from '../components/puzzlepanel/modules/ProblemModule';
 import AnswerModule from '../components/puzzlepanel/modules/AnswerModule';
 import OperationModule from '../components/puzzlepanel/modules/OperationModule';
 
-class PuzzlePanelContainer extends Component {
+class PuzzlePanelContainer extends React.Component {
     constructor(props) {
         super(props);
     }
