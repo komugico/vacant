@@ -17,6 +17,7 @@ class ProblemModule extends React.Component {
                 <Card.Body>
                     <BoardBlock
                         panels={this.props.panels}
+                        handle_click={() => alert("ズルはいけません")}
                     />
                 </Card.Body>
             </Card>

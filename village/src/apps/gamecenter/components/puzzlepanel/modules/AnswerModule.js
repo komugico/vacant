@@ -17,6 +17,7 @@ class AnswerModule extends React.Component {
                 <Card.Body>
                     <BoardBlock
                         panels={this.props.panels}
+                        handle_click={this.props.act_flip_answer_panels}
                     />
                 </Card.Body>
             </Card>

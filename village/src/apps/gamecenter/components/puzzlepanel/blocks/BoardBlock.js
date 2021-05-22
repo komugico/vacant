@@ -13,8 +13,10 @@ class BoardBlock extends React.Component {
             return this.trBoard(row, y);
         });
         return (
-            <table style={{border: "solid 1px"}}>
-                {trs}
+            <table style={{ border: "solid 1px" }}>
+                <tbody>
+                    {trs}
+                </tbody>
             </table>
         );
     }
@@ -32,9 +34,12 @@ class BoardBlock extends React.Component {
 
     tdBoard(col, y, x) {
         return (
-            <td style={{border: "solid 1px"}}>
+            <td
+                style={{ border: "solid 1px" }}
+                onClick={() => this.props.handle_click(x, y)}
+            >
                 <PanelAtom
-                    direction={col}
+                    panel={col}
                     x={x}
                     y={y}
                 />
@@ -46,7 +51,7 @@ class BoardBlock extends React.Component {
         return (
             <Row>
                 <Col></Col>
-                <Col>
+                <Col xl={10} lg={10} md={10} sm={10} xs={10}>
                     {this.tableBoard()}
                 </Col>
                 <Col></Col>
