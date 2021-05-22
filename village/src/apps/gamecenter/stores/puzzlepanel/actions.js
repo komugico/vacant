@@ -1,21 +1,21 @@
 /* ========================================================================== */
 /* Action Types                                                               */
 /* ========================================================================== */
-export const INIT = "@gamecenter/puzzlepanel/init";
-export const PROBLEM_RANDOM = "@gamecenter/puzzlepanel/prob_random";
+export const INIT_STATE = "@gamecenter/puzzlepanel/init_state";
+export const CREATE_PROBLEM_RANDOM = "@gamecenter/puzzlepanel/create_prob_random";
 export const FLIP_ANSWER_PANELS = "@gamecenter/puzzlepanel/flip_answer_panels";
-export const JUDGE = "@gamecenter/puzzlepanel/judge";
+export const JUDGE_ANSWER = "@gamecenter/puzzlepanel/judge_answer";
 
 
 /* ========================================================================== */
 /* Actions                                                                    */
 /* ========================================================================== */
-export const act_init = () => ({
-    type: INIT,
+export const act_init_state = () => ({
+    type: INIT_STATE,
 });
 
-export const act_problem_random = () => ({
-    type: PROBLEM_RANDOM,
+export const act_create_problem_random = () => ({
+    type: CREATE_PROBLEM_RANDOM,
 });
 
 export const act_flip_answer_panels = (x, y) => ({
@@ -24,6 +24,6 @@ export const act_flip_answer_panels = (x, y) => ({
     y: y,
 });
 
-export const act_judge = () => ({
-    type: JUDGE,
+export const act_judge_answer = () => ({
+    type: JUDGE_ANSWER,
 });

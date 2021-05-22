@@ -13,7 +13,7 @@ class OperationModule extends React.Component {
                     <b>Operation</b>
                 </Card.Header>
                 <Card.Body>
-                    <Button onClick={() => this.props.act_problem_random()}>問題生成</Button>
+                    <Button onClick={() => this.props.act_create_problem_random()}>問題生成</Button>
                 </Card.Body>
             </Card>
         );

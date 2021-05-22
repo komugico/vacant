@@ -1,26 +1,26 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import { Container, Row, Col } from 'react-bootstrap';
 
 import HeaderModule from '../../shared/components/modules/HeaderModule';
 
-import * as actions from '../stores/puzzlepanel/action';
+import * as actions from '../stores/puzzlepanel/actions';
 import ProblemModule from '../components/puzzlepanel/modules/ProblemModule';
 import AnswerModule from '../components/puzzlepanel/modules/AnswerModule';
 import OperationModule from '../components/puzzlepanel/modules/OperationModule';
 
-class PuzzlePanelContainer extends Component {
+class PuzzlePanelContainer extends React.Component {
     constructor(props) {
         super(props);
     }
 
     componentDidMount() {
-        this.props.act_init();
+        this.props.act_init_state();
     }
 
     componentDidUpdate(prevProps, prevState, snapshot) {
         if (prevProps.cntFlip !== this.props.cntFlip) {
-            this.props.act_judge();
+            this.props.act_judge_answer();
         }
     }
 
@@ -33,7 +33,7 @@ class PuzzlePanelContainer extends Component {
                     <Row>
                         <Col xl={12} lg={12} md={12} sm={12} xs={12}>
                             <OperationModule
-                                act_problem_random={this.props.act_problem_random}
+                                act_create_problem_random={this.props.act_create_problem_random}
                             />
                         </Col>
                     </Row>

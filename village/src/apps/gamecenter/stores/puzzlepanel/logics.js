@@ -1,4 +1,4 @@
-import * as C from './constant';
+import * as C from './constants';
 
 export const createInitState = () => {
     let problemPanels = [];

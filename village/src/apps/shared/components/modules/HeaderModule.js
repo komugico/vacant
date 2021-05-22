@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { LinkContainer } from 'react-router-bootstrap';
 import { Navbar, Nav, NavDropdown } from 'react-bootstrap';
 
-class HeaderModule extends Component {
+class HeaderModule extends React.Component {
     constructor(props) {
         super(props);
     }

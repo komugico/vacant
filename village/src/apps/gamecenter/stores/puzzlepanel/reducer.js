@@ -1,19 +1,18 @@
 /* ========================================================================== */
 /* Import                                                                     */
 /* ========================================================================== */
-import * as actions from './action';
+import * as actions from './actions';
 import * as logics from './logics';
-import * as C from './constant';
+import * as C from './constants';
 
 /* ========================================================================== */
 /* Reducer                                                                    */
 /* ========================================================================== */
 const reducer = (state = logics.createInitState(), action) => {
     switch (action.type) {
-        case actions.INIT:
+        case actions.INIT_STATE:
             return logics.createInitState();
-        case actions.PROBLEM_RANDOM:
-            let problemPanels = logics.createProblemRandom(state.numPanel);
+        case actions.CREATE_PROBLEM_RANDOM:
             let answerPanels = [];
             
             for (let i = 0; i < state.numPanel; i++) {
@@ -25,19 +24,18 @@ const reducer = (state = logics.createInitState(), action) => {
 
             return {
                 ...state,
-                problemPanels: problemPanels,
+                problemPanels: logics.createProblemRandom(state.numPanel),
                 answerPanels: answerPanels,
             }
         case actions.FLIP_ANSWER_PANELS:
             let cpy_answerPanels = JSON.parse(JSON.stringify(state.answerPanels));
-            let flipped_answerPanels = logics.flipPanels(cpy_answerPanels, action.x, action.y, state.numPanel);
             let cntFlip = state.cntFlip + 1;
             return {
                 ...state,
-                answerPanels: flipped_answerPanels,
-                cntFlip: cntFlip,
+                answerPanels: logics.flipPanels(cpy_answerPanels, action.x, action.y, state.numPanel),
+                cntFlip: state.cntFlip + 1,
             }
-        case actions.JUDGE:
+        case actions.JUDGE_ANSWER:
             if (logics.judge(state.problemPanels, state.answerPanels, state.numPanel)) {
                 setTimeout(() => alert("CLEAR"), 1);
             }
