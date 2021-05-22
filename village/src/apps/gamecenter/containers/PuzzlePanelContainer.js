@@ -4,7 +4,7 @@ import { Container, Row, Col } from 'react-bootstrap';
 
 import HeaderModule from '../../shared/components/modules/HeaderModule';
 
-import * as actions from '../stores/puzzlepanel/action';
+import * as actions from '../stores/puzzlepanel/actions';
 import ProblemModule from '../components/puzzlepanel/modules/ProblemModule';
 import AnswerModule from '../components/puzzlepanel/modules/AnswerModule';
 import OperationModule from '../components/puzzlepanel/modules/OperationModule';

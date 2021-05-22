@@ -5,7 +5,7 @@ import { Button } from 'react-bootstrap';
 
 import HeaderModule from '../../shared/components/modules/HeaderModule';
 
-import * as actions from '../stores/home/action';
+import * as actions from '../stores/home/actions';
 
 class HomeContainer extends React.Component {
     constructor(props) {

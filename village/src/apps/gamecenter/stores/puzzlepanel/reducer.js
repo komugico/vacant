@@ -1,9 +1,9 @@
 /* ========================================================================== */
 /* Import                                                                     */
 /* ========================================================================== */
-import * as actions from './action';
+import * as actions from './actions';
 import * as logics from './logics';
-import * as C from './constant';
+import * as C from './constants';
 
 /* ========================================================================== */
 /* Reducer                                                                    */

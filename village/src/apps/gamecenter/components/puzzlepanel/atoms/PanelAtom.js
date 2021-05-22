@@ -1,6 +1,6 @@
 import React from 'react';
 
-import * as C from '../../../stores/puzzlepanel/constant';
+import * as C from '../../../stores/puzzlepanel/constants';
 
 class PanelAtom extends React.Component {
     constructor(props) {
