@@ -1,14 +1,11 @@
 import * as C from './constants';
 
 export const createInitState = () => {
-    let problemPanels = initPanel();
-    let answerPanels = initPanel();
-
     let initState = {
         numPanel: C.NUM_PANEL_INIT,
         cntFlip: 0,
-        problemPanels: problemPanels,
-        answerPanels: answerPanels,
+        problemPanels: initPanel(C.NUM_PANEL_INIT),
+        answerPanels: initPanel(C.NUM_PANEL_INIT),
     };
 
     return initState;
@@ -71,7 +68,7 @@ export const judge = (problemPanels, answerPanels, numPanel) => {
     return true;
 };
 
-const initPanel = (numPanel = C.NUM_PANEL_INIT) => {
+export const initPanel = (numPanel) => {
     let panels = [];
     for (let i = 0; i < numPanel; i++) {
         panels.push([]);

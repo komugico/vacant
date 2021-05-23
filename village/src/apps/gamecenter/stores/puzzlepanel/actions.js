@@ -5,7 +5,7 @@ export const INIT_STATE = "@gamecenter/puzzlepanel/init_state";
 export const CREATE_PROBLEM_RANDOM = "@gamecenter/puzzlepanel/create_prob_random";
 export const FLIP_ANSWER_PANELS = "@gamecenter/puzzlepanel/flip_answer_panels";
 export const JUDGE_ANSWER = "@gamecenter/puzzlepanel/judge_answer";
-export const ACT_RESET_ANSER = "@gamecenter/puzzlepanel/reset_answer";
+export const RESET_ANSER = "@gamecenter/puzzlepanel/reset_answer";
 
 /* ========================================================================== */
 /* Actions                                                                    */

@@ -13,19 +13,10 @@ const reducer = (state = logics.createInitState(), action) => {
         case actions.INIT_STATE:
             return logics.createInitState();
         case actions.CREATE_PROBLEM_RANDOM:
-            let answerPanels = [];
-            
-            for (let i = 0; i < state.numPanel; i++) {
-                answerPanels.push([]);
-                for (let j = 0; j < state.numPanel; j++) {
-                    answerPanels[i].push(C.PANEL_FRONT);
-                }
-            }
-
             return {
                 ...state,
                 problemPanels: logics.createProblemRandom(state.numPanel),
-                answerPanels: answerPanels,
+                answerPanels: logics.initPanel(state.numPanel),
             }
         case actions.FLIP_ANSWER_PANELS:
             let cpy_answerPanels = JSON.parse(JSON.stringify(state.answerPanels));
@@ -45,7 +36,7 @@ const reducer = (state = logics.createInitState(), action) => {
         case actions.ACT_RESET_ANSER:
             return {
                 ...state,
-                answerPanels: logics.initPanel(),
+                answerPanels: logics.initPanel(state.numPanel),
                 cntFlip: 0,
             }
         default:
