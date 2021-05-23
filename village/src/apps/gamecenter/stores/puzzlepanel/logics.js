@@ -71,11 +71,11 @@ export const judge = (problemPanels, answerPanels, numPanel) => {
     return true;
 };
 
-const initPanel = () => {
+const initPanel = (numPanel = C.NUM_PANEL_INIT) => {
     let panels = [];
-    for (let i = 0; i < C.NUM_PANEL_INIT; i++) {
+    for (let i = 0; i < numPanel; i++) {
         panels.push([]);
-        for (let j = 0; j < C.NUM_PANEL_INIT; j++) {
+        for (let j = 0; j < numPanel; j++) {
             panels[i].push(C.PANEL_FRONT);
         }
     }
