@@ -42,6 +42,12 @@ const reducer = (state = logics.createInitState(), action) => {
             return {
                 ...state,
             }
+        case actions.ACT_RESET_ANSER:
+            return {
+                ...state,
+                answerPanels: logics.initPanel(),
+                cntFlip: 0,
+            }
         default:
             return state;
     }
