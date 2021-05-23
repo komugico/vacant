@@ -19,7 +19,7 @@ class OperationModule extends React.Component {
                             <Button onClick={() => this.props.act_create_problem_random()}>問題生成</Button>
                         </Col>
                         <Col>
-                            <Button onClick={() => alert("未実装")}>解答リセット</Button>
+                            <Button onClick={() => this.props.act_reset_answer()}>解答リセット</Button>
                         </Col>
                     </Row>
                 </Card.Body>
