@@ -34,6 +34,7 @@ class PuzzlePanelContainer extends React.Component {
                         <Col xl={12} lg={12} md={12} sm={12} xs={12}>
                             <OperationModule
                                 act_create_problem_random={this.props.act_create_problem_random}
+                                act_reset_answer={this.props.act_reset_answer}
                             />
                         </Col>
                     </Row>

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Row, Col } from 'react-bootstrap';
 import { Card, Button } from 'react-bootstrap';
 
 class OperationModule extends React.Component {
@@ -13,7 +14,14 @@ class OperationModule extends React.Component {
                     <b>Operation</b>
                 </Card.Header>
                 <Card.Body>
-                    <Button onClick={() => this.props.act_create_problem_random()}>問題生成</Button>
+                    <Row>
+                        <Col>
+                            <Button onClick={() => this.props.act_create_problem_random()}>問題生成</Button>
+                        </Col>
+                        <Col>
+                            <Button onClick={() => this.props.act_reset_answer()}>解答リセット</Button>
+                        </Col>
+                    </Row>
                 </Card.Body>
             </Card>
         );
