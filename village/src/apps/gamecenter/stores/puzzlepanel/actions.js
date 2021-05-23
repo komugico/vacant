@@ -29,5 +29,5 @@ export const act_judge_answer = () => ({
 });
 
 export const act_reset_answer = () => ({
-    type: ACT_RESET_ANSER,
+    type: RESET_ANSER,
 });

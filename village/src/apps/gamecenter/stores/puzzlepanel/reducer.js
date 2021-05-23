@@ -3,7 +3,6 @@
 /* ========================================================================== */
 import * as actions from './actions';
 import * as logics from './logics';
-import * as C from './constants';
 
 /* ========================================================================== */
 /* Reducer                                                                    */
@@ -33,7 +32,7 @@ const reducer = (state = logics.createInitState(), action) => {
             return {
                 ...state,
             }
-        case actions.ACT_RESET_ANSER:
+        case actions.RESET_ANSER:
             return {
                 ...state,
                 answerPanels: logics.initPanel(state.numPanel),
