@@ -47,6 +47,13 @@ const reducer = (state = logics.createInitState(C.NUM_PANEL_INIT), action) => {
                     seconds: state.seconds - 1,
                 }
             }
+            else if (state.seconds == 0) {
+                setTimeout(() => alert("GAME OVER"), 10);
+                return {
+                    ...state,
+                    seconds: -1,
+                }
+            }
             else {
                 return {
                     ...state,
