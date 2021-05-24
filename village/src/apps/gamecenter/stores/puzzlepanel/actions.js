@@ -5,7 +5,8 @@ export const INIT_STATE = "@gamecenter/puzzlepanel/init_state";
 export const CREATE_PROBLEM_RANDOM = "@gamecenter/puzzlepanel/create_prob_random";
 export const FLIP_ANSWER_PANELS = "@gamecenter/puzzlepanel/flip_answer_panels";
 export const JUDGE_ANSWER = "@gamecenter/puzzlepanel/judge_answer";
-export const RESET_ANSER = "@gamecenter/puzzlepanel/reset_answer";
+export const RESET_ANSWER = "@gamecenter/puzzlepanel/reset_answer";
+export const TICK = "@gamecenter/puzzlepanel/tick";
 
 /* ========================================================================== */
 /* Actions                                                                    */
@@ -29,5 +30,9 @@ export const act_judge_answer = () => ({
 });
 
 export const act_reset_answer = () => ({
-    type: RESET_ANSER,
+    type: RESET_ANSWER,
+});
+
+export const act_tick = () => ({
+    type: TICK,
 });
