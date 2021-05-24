@@ -15,6 +15,7 @@ class PuzzlePanelContainer extends React.Component {
     }
 
     componentDidMount() {
+        this.timer = setInterval(() => this.props.act_tick(), 1000);
         this.props.act_init_state();
     }
 
@@ -22,6 +23,10 @@ class PuzzlePanelContainer extends React.Component {
         if (prevProps.cntFlip !== this.props.cntFlip) {
             this.props.act_judge_answer();
         }
+    }
+
+    componentWillUnmount() {
+        clearInterval(this.timer);
     }
 
     render() {
@@ -33,6 +38,7 @@ class PuzzlePanelContainer extends React.Component {
                     <Row>
                         <Col xl={12} lg={12} md={12} sm={12} xs={12}>
                             <OperationModule
+                                seconds={this.props.seconds}
                                 act_create_problem_random={this.props.act_create_problem_random}
                                 act_reset_answer={this.props.act_reset_answer}
                             />

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Row, Col } from 'react-bootstrap';
 import { Card, Button } from 'react-bootstrap';
+import TimeBlock from '../blocks/TimeBlock';
 
 class OperationModule extends React.Component {
     constructor(props) {
@@ -20,6 +21,11 @@ class OperationModule extends React.Component {
                         </Col>
                         <Col>
                             <Button onClick={() => this.props.act_reset_answer()}>解答リセット</Button>
+                        </Col>
+                        <Col>
+                            <TimeBlock
+                                seconds={this.props.seconds}
+                            />
                         </Col>
                     </Row>
                 </Card.Body>

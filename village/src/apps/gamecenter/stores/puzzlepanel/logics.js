@@ -1,11 +1,12 @@
 import * as C from './constants';
 
-export const createInitState = () => {
+export const createInitState = (numPanel) => {
     let initState = {
-        numPanel: C.NUM_PANEL_INIT,
+        numPanel: numPanel,
         cntFlip: 0,
-        problemPanels: initPanel(C.NUM_PANEL_INIT),
-        answerPanels: initPanel(C.NUM_PANEL_INIT),
+        problemPanels: initPanel(numPanel),
+        answerPanels: initPanel(numPanel),
+        seconds: C.SECONDS_INIT,
     };
 
     return initState;
