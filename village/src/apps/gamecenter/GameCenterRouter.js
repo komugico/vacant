@@ -5,6 +5,9 @@ import { Provider } from 'react-redux';
 import PuzzlePanelContainer from './containers/PuzzlePanelContainer';
 import PuzzlePanelStore from './stores/puzzlepanel/store';
 
+import LatticeContainer from './containers/LatticeContainer';
+import LatticeStore from './stores/lattice/store';
+
 class GameCenterRouter extends React.Component {
     constructor(props) {
         super(props);
@@ -16,6 +19,11 @@ class GameCenterRouter extends React.Component {
                 <Route exact path="/gamecenter/puzzlepanel">
                     <Provider store={PuzzlePanelStore}>
                         <PuzzlePanelContainer />
+                    </Provider>
+                </Route>
+                <Route exact path="/gamecenter/lattice">
+                    <Provider store={LatticeStore}>
+                        <LatticeContainer />
                     </Provider>
                 </Route>
             </div>

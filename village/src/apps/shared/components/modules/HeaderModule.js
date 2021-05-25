@@ -20,6 +20,9 @@ class HeaderModule extends React.Component {
                     <LinkContainer to="/gamecenter/puzzlepanel">
                         <NavDropdown.Item>PuzzlePanel</NavDropdown.Item>
                     </LinkContainer>
+                    <LinkContainer to="/gamecenter/lattice">
+                        <NavDropdown.Item>Lattice</NavDropdown.Item>
+                    </LinkContainer>
                 </NavDropdown>
             </Navbar>
         );
