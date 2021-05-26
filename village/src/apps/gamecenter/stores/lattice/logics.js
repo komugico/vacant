@@ -5,13 +5,13 @@ export const createInitState = () => {
         lattices: createEmptyStones(C.NUM_LATTICE),
         cells: createEmptyStones(C.NUM_LATTICE - 1),
         player1: {
-            bigStones: calcInitBigStones(),
             smallStones: calcInitSmallStones(),
+            bigStones: calcInitBigStones(),
             score: 0,
         },
         player2: {
-            bigStones: calcInitBigStones(),
             smallStones: calcInitSmallStones(),
+            bigStones: calcInitBigStones(),
             score: 0,
         },
         cntTurn: 0,
@@ -31,10 +31,10 @@ export const createEmptyStones = (len) => {
     return stones;
 }
 
-const calcInitBigStones = () => {
-    return Math.floor((C.NUM_LATTICE - 2) * (C.NUM_LATTICE - 2) / 2);
-}
-
 const calcInitSmallStones = () => {
     return Math.floor(C.NUM_LATTICE * (C.NUM_LATTICE - 1) / 2);
+}
+
+const calcInitBigStones = () => {
+    return Math.floor((C.NUM_LATTICE - 2) * (C.NUM_LATTICE - 2) / 2);
 }

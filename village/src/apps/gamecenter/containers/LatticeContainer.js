@@ -5,6 +5,10 @@ import { Container, Row, Col } from 'react-bootstrap';
 import HeaderModule from '../../shared/components/modules/HeaderModule';
 
 import * as actions from '../stores/lattice/actions';
+import * as C from '../stores/lattice/constants';
+import BoardModule from '../components/lattice/modules/BoardModule';
+import OperationModule from '../components/lattice/modules/OperationModule';
+import UserModule from '../components/lattice/modules/UserModule';
 
 class LatticeContainer extends React.Component {
     constructor(props) {
@@ -31,16 +35,30 @@ class LatticeContainer extends React.Component {
                 <Container fluid>
                     <Row>
                         <Col xl={12} lg={12} md={12} sm={12} xs={12}>
-                            aaa
+                            <OperationModule />
                         </Col>
                     </Row>
                     <br />
                     <Row>
-                        <Col xl={6} lg={6} md={6} sm={12} xs={12}>
-                            aaa
+                        <Col xl={3} lg={3} md={3} sm={12} xs={12}>
+                            <UserModule
+                                name={"PLAYER 1"}
+                                score={this.props.player1.score}
+                                isMyTurn={this.props.nextPlayer === C.PLAYER1}
+                            />
                         </Col>
                         <Col xl={6} lg={6} md={6} sm={12} xs={12}>
-                            aaa
+                            <BoardModule
+                                lattices={this.props.lattices}
+                                cells={this.props.cells}
+                            />
+                        </Col>
+                        <Col xl={3} lg={3} md={3} sm={12} xs={12}>
+                            <UserModule
+                                name={"PLAYER 2"}
+                                score={this.props.player2.score}
+                                isMyTurn={this.props.nextPlayer === C.PLAYER2}
+                            />
                         </Col>
                     </Row>
                 </Container>
