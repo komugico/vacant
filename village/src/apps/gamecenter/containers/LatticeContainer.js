@@ -51,6 +51,8 @@ class LatticeContainer extends React.Component {
                             <BoardModule
                                 lattices={this.props.lattices}
                                 cells={this.props.cells}
+                                grabbedStone={this.props.grabbedStone}
+                                act_put_stone={this.props.act_put_stone}
                             />
                         </Col>
                         <Col xl={3} lg={3} md={3} sm={12} xs={12}>

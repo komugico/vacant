@@ -8,19 +8,23 @@ class StoneAtom extends React.Component {
     }
 
     render() {
-        if (this.props.stone == C.STONE_PALYER1) {
+        let style = {
+            height: this.props.size + 'px',
+            position: 'relative',
+        }
+        if (this.props.stone === C.STONE_PLAYER1) {
             return (
-                <div>1</div>
+                <img src={process.env.PUBLIC_URL + C.IMG_PATH_BLACK} style={style} />
             );
         }
-        else if (this.props.stone == C.STONE_PLAYER2) {
+        else if (this.props.stone === C.STONE_PLAYER2) {
             return (
-                <div>2</div>
+                <img src={process.env.PUBLIC_URL + C.IMG_PATH_WHITE} style={style} />
             );
         }
         else {
             return (
-                <div>0</div>
+                <div></div>
             )
         }
     }

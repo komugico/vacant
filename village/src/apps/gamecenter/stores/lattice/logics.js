@@ -16,7 +16,7 @@ export const createInitState = () => {
         },
         cntTurn: 0,
         nextPlayer: C.PLAYER1,
-        grabbedStone: C.STONE_EMPTY,
+        grabbedStone: C.STONE_PLAYER1 * C.STONE_LATTICE,
     }
 };
 
@@ -37,4 +37,8 @@ const calcInitSmallStones = () => {
 
 const calcInitBigStones = () => {
     return Math.floor((C.NUM_LATTICE - 2) * (C.NUM_LATTICE - 2) / 2);
+}
+
+export const copyArray = (array) => {
+    return JSON.parse(JSON.stringify(array));
 }

@@ -1,28 +1,32 @@
 import React from 'react';
-import { Row, Col } from 'react-bootstrap';
 
 import StoneAtom from '../atoms/StoneAtom';
 
 class BoardBlock extends React.Component {
     constructor(props) {
         super(props);
+
+        this.state = {
+            px: -1,
+            py: -1,
+        }
     }
 
-    tableBoard() {
+    styleSelected() {
+        return {
+            backgroundImage: '-webkit-radial-gradient(#ff0000 0%, #ffffff 70%)',
+            backgroundImage: 'radial-gradient(#ff0000 0%, #ffffff 70%)',
+        }
+    }
+
+    tbodyBoard() {
         let trs = this.props.stones.map((row, y) => {
             return this.trBoard(row, y);
         });
-        let style = {
-            position: 'absolute',
-            left: 0,
-            top: 0
-        }
         return (
-            <table style={style}>
-                <tbody>
-                    {trs}
-                </tbody>
-            </table>
+            <tbody>
+                {trs}
+            </tbody>
         );
     }
 
@@ -38,15 +42,19 @@ class BoardBlock extends React.Component {
     }
 
     tdBoard(col, y, x) {
-        let style = {
-            width: '20px',
-            height: '20px',
-            border: 'solid 1px',
-            textAlign: 'center',
-            zIndex: 0,
+        let style = this.props.styles.td;
+        if (this.props.px === x && this.props.py === y && this.props.isGrabbed) {
+            style = {
+                ...style,
+                ...this.styleSelected(),
+            }
         }
         return (
-            <td style={style}>
+            <td
+                style={style}
+                onMouseEnter={() => this.handle_enter_td(x, y)}
+                onClick={() => this.handle_click_td(x, y)}
+            >
                 <StoneAtom
                     stone={col}
                     size={this.props.size}
@@ -55,17 +63,32 @@ class BoardBlock extends React.Component {
         )
     }
 
+    handle_enter_td(x, y) {
+        if (this.props.updatePxPy) {
+            this.props.updatePxPy(x, y);
+        }
+    }
+
+    handle_click_td(x, y) {
+        if (this.props.act_put_stone) {
+            this.props.act_put_stone(x, y);
+        }
+    }
+
+    handle_leave_table() {
+        if (this.props.updatePxPy) {
+            this.props.updatePxPy(-1, -1);
+        }
+    }
+
     render() {
         return (
-            <Row>
-                <Col></Col>
-                <Col xl={10} lg={10} md={10} sm={10} xs={10}>
-                    <div style={{ position: 'relative', paddingTop: '100%' }}>
-                        {this.tableBoard()}
-                    </div>
-                </Col>
-                <Col></Col>
-            </Row>
+            <table
+                style={this.props.styles.table}
+                onMouseLeave={() => this.handle_leave_table()}
+            >
+                {this.tbodyBoard()}
+            </table>
         );
     }
 }
