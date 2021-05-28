@@ -44,6 +44,7 @@ class StonePanelBlock extends React.Component {
                             variant='outline-secondary'
                             size='sm'
                             onClick={() => this.props.act_grab_stone(this.props.player * C.STONE_LATTICE)}
+                            disabled={!this.props.isMyTurn || !this.props.smallStones}
                             block
                         >
                             Grab
@@ -60,6 +61,7 @@ class StonePanelBlock extends React.Component {
                             variant='outline-secondary'
                             size='sm'
                             onClick={() => this.props.act_grab_stone(this.props.player * C.STONE_CELL)}
+                            disabled={!this.props.isMyTurn || !this.props.bigStones}
                             block
                         >
                             Grab

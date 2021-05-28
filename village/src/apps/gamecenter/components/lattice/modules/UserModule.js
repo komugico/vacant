@@ -29,6 +29,7 @@ class OperationModule extends React.Component {
                         player={this.props.player}
                         smallStones={this.props.smallStones}
                         bigStones={this.props.bigStones}
+                        isMyTurn={this.props.isMyTurn}
                         act_grab_stone={this.props.act_grab_stone}
                     />
                 </Card.Body>
