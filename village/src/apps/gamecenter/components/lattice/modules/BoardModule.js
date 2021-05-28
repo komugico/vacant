@@ -96,7 +96,7 @@ class BoardModule extends React.Component {
         };
     }
 
-    dummyBoardBlocks() {
+    boardBlocksDummy() {
         return (
             <div>
                 <BoardBlock
@@ -119,7 +119,7 @@ class BoardModule extends React.Component {
         );
     }
 
-    stoneBoardBlocks() {
+    boardBlocksStones() {
         if (Math.abs(this.props.grabbedStone) === C.STONE_CELL) {
             return (
                 <div>
@@ -182,8 +182,8 @@ class BoardModule extends React.Component {
                 </Card.Header>
                 <Card.Body>
                     <div style={{ position: 'relative', paddingTop: '100%' }}>
-                        { this.dummyBoardBlocks() }
-                        { this.stoneBoardBlocks() }
+                        { this.boardBlocksDummy() }
+                        { this.boardBlocksStones() }
                     </div>
                 </Card.Body>
             </Card>
