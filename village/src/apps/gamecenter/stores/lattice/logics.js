@@ -70,3 +70,7 @@ const calcScoreLogic1 = (lattices, cells, player) => {
     }
     return score;
 }
+
+export const canPut = (stones, x, y) => {
+    return (stones[y][x] === C.STONE_EMPTY);
+}

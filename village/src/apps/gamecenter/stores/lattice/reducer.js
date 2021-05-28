@@ -122,20 +122,54 @@ const reducer = (state = logics.createInitState(), action) => {
                 boardSize: action.boardSize,
             }
         case actions.THINK_CPU:
-            let xy = cpu.think(state.lattices, state.cells, 0);
-            let cpy_lattices = logics.copyArray(state.lattices);
-            cpy_lattices[xy.y][xy.x] = C.STONE_PLAYER2;
+            let prediction = cpu.think(
+                state.lattices,
+                state.cells,
+                state.player1.smallStones,
+                state.player1.bigStones,
+                state.player2.smallStones,
+                state.player2.bigStones,
+                3
+            );
+            console.dir(prediction);
+            if (prediction) {
+                if (Math.abs(prediction.stone) === C.STONE_LATTICE) {
+                    let cpy_lattices = logics.copyArray(state.lattices);
+                    cpy_lattices[prediction.py][prediction.px] = C.STONE_PLAYER2;
+    
+                    return {
+                        ...state,
+                        lattices: cpy_lattices,
+                        player2: {
+                            smallStones: state.player2.smallStones - 1,
+                            bigStones: state.player2.bigStones,
+                            score: state.player2.score,
+                        },
+                        cntTurn: state.cntTurn + 1,
+                        nextPlayer: C.PLAYER1,
+                        grabbedStone: C.STONE_EMPTY,
+                    }
+                }
+                else {
+                    let cpy_cells = logics.copyArray(state.cells);
+                    cpy_cells[prediction.py][prediction.px] = C.STONE_PLAYER2;
+    
+                    return {
+                        ...state,
+                        cells: cpy_cells,
+                        player2: {
+                            smallStones: state.player2.smallStones,
+                            bigStones: state.player2.bigStones - 1,
+                            score: state.player2.score,
+                        },
+                        cntTurn: state.cntTurn + 1,
+                        nextPlayer: C.PLAYER1,
+                        grabbedStone: C.STONE_EMPTY,
+                    }
+                }
+            }
             return {
                 ...state,
-                lattices: cpy_lattices,
-                player2: {
-                    smallStones: state.player2.smallStones - 1,
-                    bigStones: state.player2.bigStones,
-                    score: state.player2.score,
-                },
-                cntTurn: state.cntTurn + 1,
-                nextPlayer: C.PLAYER1,
-                grabbedStone: C.STONE_EMPTY,
             }
         default:
             return {
