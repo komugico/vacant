@@ -73,8 +73,10 @@ class BoardBlock extends React.Component {
 
     handle_click_td(x, y) {
         if (this.props.act_put_stone) {
-            this.props.updatePxPy(-1, -1);
             this.props.act_put_stone(x, y);
+        }
+        if (this.props.updatePxPy) {
+            this.props.updatePxPy(-1, -1);
         }
     }
 
