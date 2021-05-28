@@ -4,6 +4,9 @@
 import * as actions from './actions';
 import * as logics from './logics';
 import * as C from './constants';
+import LatticeCPU from './cpu';
+
+const cpu = new LatticeCPU();
 
 /* ========================================================================== */
 /* Reducer                                                                    */
@@ -99,10 +102,40 @@ const reducer = (state = logics.createInitState(), action) => {
             return {
                 ...state,
             }
+        case actions.UPDATE_SCORE:
+            return {
+                ...state,
+                player1: {
+                    smallStones: state.player1.smallStones,
+                    bigStones: state.player1.bigStones,
+                    score: logics.calcScore(state.lattices, state.cells, C.PLAYER1),
+                },
+                player2: {
+                    smallStones: state.player2.smallStones,
+                    bigStones: state.player2.bigStones,
+                    score: logics.calcScore(state.lattices, state.cells, C.PLAYER2),
+                }
+            }
         case actions.UPDATE_BOARD_SIZE:
             return {
                 ...state,
                 boardSize: action.boardSize,
+            }
+        case actions.THINK_CPU:
+            let xy = cpu.think(state.lattices, state.cells, 0);
+            let cpy_lattices = logics.copyArray(state.lattices);
+            cpy_lattices[xy.y][xy.x] = C.STONE_PLAYER2;
+            return {
+                ...state,
+                lattices: cpy_lattices,
+                player2: {
+                    smallStones: state.player2.smallStones - 1,
+                    bigStones: state.player2.bigStones,
+                    score: state.player2.score,
+                },
+                cntTurn: state.cntTurn + 1,
+                nextPlayer: C.PLAYER1,
+                grabbedStone: C.STONE_EMPTY,
             }
         default:
             return {

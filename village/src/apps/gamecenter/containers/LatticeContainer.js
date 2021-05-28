@@ -20,7 +20,12 @@ class LatticeContainer extends React.Component {
     }
 
     componentDidUpdate(prevProps, prevState, snapshot) {
-        
+        if (prevProps.cntTurn !== this.props.cntTurn) {
+            this.props.act_update_score();
+            if (this.props.nextPlayer === C.PLAYER2) {
+                this.props.act_think_cpu();
+            }
+        }
     }
 
     componentWillUnmount() {

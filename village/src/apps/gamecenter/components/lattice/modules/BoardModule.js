@@ -21,7 +21,7 @@ class BoardModule extends React.Component {
     }
 
     handleUpdateBoardSize() {
-        let boardSize = Math.floor(document.getElementById('board-parent').clientWidth * 0.9);
+        let boardSize = Math.floor(document.getElementById('board-parent').clientWidth * 0.8);
         this.props.act_update_board_size(boardSize);
     }
 
@@ -192,7 +192,7 @@ class BoardModule extends React.Component {
                     <b>Lattice Board</b>
                 </Card.Header>
                 <Card.Body>
-                    <div id='board-parent' style={{ position: 'relative', paddingTop: '90%', left: Math.floor(this.props.boardSize / 18) + 'px' }}>
+                    <div id='board-parent' style={{ position: 'relative', paddingTop: '80%', left: Math.floor(this.props.boardSize / 8) + 'px' }}>
                         { this.boardBlocksDummy() }
                         { this.boardBlocksStones() }
                     </div>
