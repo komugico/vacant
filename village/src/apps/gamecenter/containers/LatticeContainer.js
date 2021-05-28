@@ -46,7 +46,11 @@ class LatticeContainer extends React.Component {
                             <UserModule
                                 name={"PLAYER 1"}
                                 score={this.props.player1.score}
+                                player={C.STONE_PLAYER1}
+                                smallStones={this.props.player1.smallStones}
+                                bigStones={this.props.player1.bigStones}
                                 isMyTurn={this.props.nextPlayer === C.PLAYER1}
+                                act_grab_stone={this.props.act_grab_stone}
                             />
                         </Col>
                         <Col xl={6} lg={6} md={6} sm={12} xs={12}>
@@ -61,7 +65,11 @@ class LatticeContainer extends React.Component {
                             <UserModule
                                 name={"PLAYER 2"}
                                 score={this.props.player2.score}
+                                player={C.STONE_PLAYER2}
+                                smallStones={this.props.player2.smallStones}
+                                bigStones={this.props.player2.bigStones}
                                 isMyTurn={this.props.nextPlayer === C.PLAYER2}
+                                act_grab_stone={this.props.act_grab_stone}
                             />
                         </Col>
                     </Row>

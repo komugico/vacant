@@ -1,5 +1,6 @@
 import React from 'react';
 import { Card, Button } from 'react-bootstrap';
+import StonePanelBlock from '../blocks/StonePanelBlock';
 
 class OperationModule extends React.Component {
     constructor(props) {
@@ -24,6 +25,12 @@ class OperationModule extends React.Component {
                     >Surrender</Button>
                     <hr />
                     <Card.Title>Stones</Card.Title>
+                    <StonePanelBlock
+                        player={this.props.player}
+                        smallStones={this.props.smallStones}
+                        bigStones={this.props.bigStones}
+                        act_grab_stone={this.props.act_grab_stone}
+                    />
                 </Card.Body>
             </Card>
         );
