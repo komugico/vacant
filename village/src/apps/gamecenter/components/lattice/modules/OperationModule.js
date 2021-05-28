@@ -13,7 +13,7 @@ class OperationModule extends React.Component {
                     <b>Operation</b>
                 </Card.Header>
                 <Card.Body>
-                    <Button onClick={() => alert("未実装")}>BUTTON</Button>
+                    <Button onClick={() => this.props.act_init_state()}>Reset</Button>
                 </Card.Body>
             </Card>
         );

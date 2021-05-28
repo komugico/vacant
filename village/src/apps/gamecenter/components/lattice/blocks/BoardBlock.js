@@ -53,6 +53,8 @@ class BoardBlock extends React.Component {
             <td
                 style={style}
                 onMouseEnter={() => this.handle_enter_td(x, y)}
+                onTouchStart={() => this.handle_enter_td(x, y)}
+                onTouchEnd={() => this.handle_leave()}
                 onClick={() => this.handle_click_td(x, y)}
             >
                 <StoneAtom
@@ -71,11 +73,12 @@ class BoardBlock extends React.Component {
 
     handle_click_td(x, y) {
         if (this.props.act_put_stone) {
+            this.props.updatePxPy(-1, -1);
             this.props.act_put_stone(x, y);
         }
     }
 
-    handle_leave_table() {
+    handle_leave() {
         if (this.props.updatePxPy) {
             this.props.updatePxPy(-1, -1);
         }
@@ -85,7 +88,7 @@ class BoardBlock extends React.Component {
         return (
             <table
                 style={this.props.styles.table}
-                onMouseLeave={() => this.handle_leave_table()}
+                onMouseLeave={() => this.handle_leave()}
             >
                 {this.tbodyBoard()}
             </table>
