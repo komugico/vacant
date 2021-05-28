@@ -15,7 +15,7 @@ class StonePanelBlock extends React.Component {
             stoneAtoms.push(
                 <StoneAtom
                     stone={this.props.player}
-                    size={20}
+                    size={Math.floor(this.props.boardSize / this.props.numLattice * 0.3)}
                 />
             )
         }
@@ -28,7 +28,7 @@ class StonePanelBlock extends React.Component {
             stoneAtoms.push(
                 <StoneAtom
                     stone={this.props.player}
-                    size={50}
+                    size={Math.floor(this.props.boardSize / this.props.numLattice * 0.7)}
                 />
             )
         }

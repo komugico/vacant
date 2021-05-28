@@ -12,6 +12,17 @@ class BoardModule extends React.Component {
             px: -1,
             py: -1,
         }
+
+        window.addEventListener('resize', () => this.handleUpdateBoardSize());
+    }
+
+    componentDidMount() {
+        this.handleUpdateBoardSize();
+    }
+
+    handleUpdateBoardSize() {
+        let boardSize = Math.floor(document.getElementById('board-parent').clientWidth * 0.9);
+        this.props.act_update_board_size(boardSize);
     }
 
     updatePxPy(x, y) {
@@ -40,8 +51,8 @@ class BoardModule extends React.Component {
                 top: 0,
             },
             td: {
-                width: '60px',
-                height: '60px',
+                width: Math.floor(this.props.boardSize / this.props.numLattice) + 'px',
+                height: Math.floor(this.props.boardSize / this.props.numLattice) + 'px',
                 border: 'none',
                 textAlign: 'center',
             }
@@ -52,12 +63,12 @@ class BoardModule extends React.Component {
         return {
             table: {
                 position: 'absolute',
-                left: '30px',
-                top: '30px',
+                left: Math.floor(this.props.boardSize / this.props.numLattice) / 2 + 'px',
+                top: Math.floor(this.props.boardSize / this.props.numLattice) / 2 + 'px',
             },
             td: {
-                width: '60px',
-                height: '60px',
+                width: Math.floor(this.props.boardSize / this.props.numLattice) + 'px',
+                height: Math.floor(this.props.boardSize / this.props.numLattice) + 'px',
                 border: 'solid 1px',
                 textAlign: 'center',
             }
@@ -72,8 +83,8 @@ class BoardModule extends React.Component {
                 top: 0,
             },
             td: {
-                width: '60px',
-                height: '60px',
+                width: Math.floor(this.props.boardSize / this.props.numLattice) + 'px',
+                height: Math.floor(this.props.boardSize / this.props.numLattice) + 'px',
                 border: 'none',
                 textAlign: 'center',
             }
@@ -84,12 +95,12 @@ class BoardModule extends React.Component {
         return {
             table: {
                 position: 'absolute',
-                left: '30px',
-                top: '30px',
+                left: Math.floor(this.props.boardSize / this.props.numLattice) / 2 + 'px',
+                top: Math.floor(this.props.boardSize / this.props.numLattice) / 2 + 'px',
             },
             td: {
-                width: '60px',
-                height: '60px',
+                width: Math.floor(this.props.boardSize / this.props.numLattice) + 'px',
+                height: Math.floor(this.props.boardSize / this.props.numLattice) + 'px',
                 border: 'none',
                 textAlign: 'center',
             }
@@ -105,7 +116,7 @@ class BoardModule extends React.Component {
                     isGrabbed={Math.abs(this.props.grabbedStone) === C.STONE_LATTICE}
                     px={this.state.px}
                     py={this.state.py}
-                    size={20}
+                    size={0}
                 />
                 <BoardBlock
                     stones={this.stonesDummy(this.props.cells.length)}
@@ -113,7 +124,7 @@ class BoardModule extends React.Component {
                     isGrabbed={Math.abs(this.props.grabbedStone) === C.STONE_CELL}
                     px={this.state.px}
                     py={this.state.py}
-                    size={20}
+                    size={0}
                 />
             </div>
         );
@@ -126,14 +137,14 @@ class BoardModule extends React.Component {
                     <BoardBlock
                         stones={this.props.lattices}
                         styles={this.stylesLattices()}
-                        size={20}
+                        size={Math.floor(this.props.boardSize / this.props.numLattice * 0.3)}
                     />
                     <BoardBlock
                         stones={this.props.cells}
                         styles={this.stylesCells()}
                         updatePxPy={(x, y) => this.updatePxPy(x, y)}
                         act_put_stone={(x, y) => this.props.act_put_stone(x, y)}
-                        size={50}
+                        size={Math.floor(this.props.boardSize / this.props.numLattice * 0.7)}
                     />
                 </div>
             );
@@ -144,14 +155,14 @@ class BoardModule extends React.Component {
                     <BoardBlock
                         stones={this.props.cells}
                         styles={this.stylesCells()}
-                        size={50}
+                        size={Math.floor(this.props.boardSize / this.props.numLattice * 0.7)}
                     />
                     <BoardBlock
                         stones={this.props.lattices}
                         styles={this.stylesLattices()}
                         updatePxPy={(x, y) => this.updatePxPy(x, y)}
                         act_put_stone={(x, y) => this.props.act_put_stone(x, y)}
-                        size={20}
+                        size={Math.floor(this.props.boardSize / this.props.numLattice * 0.3)}
                     />
                 </div>
             );
@@ -162,12 +173,12 @@ class BoardModule extends React.Component {
                     <BoardBlock
                         stones={this.props.lattices}
                         styles={this.stylesLattices()}
-                        size={20}
+                        size={Math.floor(this.props.boardSize / this.props.numLattice * 0.3)}
                     />
                     <BoardBlock
                         stones={this.props.cells}
                         styles={this.stylesCells()}
-                        size={50}
+                        size={Math.floor(this.props.boardSize / this.props.numLattice * 0.7)}
                     />
                 </div>
             )
@@ -181,7 +192,7 @@ class BoardModule extends React.Component {
                     <b>Lattice Board</b>
                 </Card.Header>
                 <Card.Body>
-                    <div style={{ position: 'relative', paddingTop: '100%' }}>
+                    <div id='board-parent' style={{ position: 'relative', paddingTop: '90%', left: Math.floor(this.props.boardSize / 18) + 'px' }}>
                         { this.boardBlocksDummy() }
                         { this.boardBlocksStones() }
                     </div>

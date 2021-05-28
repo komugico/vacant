@@ -2,6 +2,7 @@ import * as C from './constants';
 
 export const createInitState = () => {
     return {
+        numLattice: C.NUM_LATTICE,
         lattices: createEmptyStones(C.NUM_LATTICE),
         cells: createEmptyStones(C.NUM_LATTICE - 1),
         player1: {
@@ -16,7 +17,8 @@ export const createInitState = () => {
         },
         cntTurn: 0,
         nextPlayer: C.PLAYER1,
-        grabbedStone: C.STONE_PLAYER1 * C.STONE_LATTICE,
+        grabbedStone: C.STONE_EMPTY,
+        boardSize: 50,
     }
 };
 

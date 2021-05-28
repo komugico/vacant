@@ -11,7 +11,10 @@ import * as C from './constants';
 const reducer = (state = logics.createInitState(), action) => {
     switch (action.type) {
         case actions.INIT_STATE:
-            return logics.createInitState();
+            return {
+                ...logics.createInitState(),
+                boardSize: state.boardSize,
+            }
         case actions.GRAB_STONE:
             return {
                 ...state,
@@ -95,6 +98,11 @@ const reducer = (state = logics.createInitState(), action) => {
             
             return {
                 ...state,
+            }
+        case actions.UPDATE_BOARD_SIZE:
+            return {
+                ...state,
+                boardSize: action.boardSize,
             }
         default:
             return {

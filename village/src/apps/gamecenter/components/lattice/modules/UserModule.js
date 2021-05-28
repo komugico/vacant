@@ -26,9 +26,11 @@ class OperationModule extends React.Component {
                     <hr />
                     <Card.Title>Stones</Card.Title>
                     <StonePanelBlock
+                        numLattice={this.props.numLattice}
                         player={this.props.player}
                         smallStones={this.props.smallStones}
                         bigStones={this.props.bigStones}
+                        boardSize={this.props.boardSize}
                         isMyTurn={this.props.isMyTurn}
                         act_grab_stone={this.props.act_grab_stone}
                     />

@@ -47,6 +47,8 @@ class LatticeContainer extends React.Component {
                                 name={"PLAYER 1"}
                                 score={this.props.player1.score}
                                 player={C.STONE_PLAYER1}
+                                numLattice={this.props.numLattice}
+                                boardSize={this.props.boardSize}
                                 smallStones={this.props.player1.smallStones}
                                 bigStones={this.props.player1.bigStones}
                                 isMyTurn={this.props.nextPlayer === C.PLAYER1}
@@ -55,10 +57,13 @@ class LatticeContainer extends React.Component {
                         </Col>
                         <Col xl={6} lg={6} md={6} sm={12} xs={12}>
                             <BoardModule
+                                numLattice={this.props.numLattice}
+                                boardSize={this.props.boardSize}
                                 lattices={this.props.lattices}
                                 cells={this.props.cells}
                                 grabbedStone={this.props.grabbedStone}
                                 act_put_stone={this.props.act_put_stone}
+                                act_update_board_size={this.props.act_update_board_size}
                             />
                         </Col>
                         <Col xl={3} lg={3} md={3} sm={12} xs={12}>
@@ -66,6 +71,8 @@ class LatticeContainer extends React.Component {
                                 name={"PLAYER 2"}
                                 score={this.props.player2.score}
                                 player={C.STONE_PLAYER2}
+                                numLattice={this.props.numLattice}
+                                boardSize={this.props.boardSize}
                                 smallStones={this.props.player2.smallStones}
                                 bigStones={this.props.player2.bigStones}
                                 isMyTurn={this.props.nextPlayer === C.PLAYER2}
